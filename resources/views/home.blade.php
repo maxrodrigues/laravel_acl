@@ -19,7 +19,9 @@
                             <p class="text-justify px-2">{{ $post->description }}</p>
                             <br>
                             <p class="mx-2">Autor: <b>{{ $post->User->name }}</b></p>
-                            <a href="{{ route('post.update', ['id' => $post->id]) }}">Editar</a>
+                            @can('update-post', $post)
+                                <a href="{{ route('post.update', ['id' => $post->id]) }}">Editar</a>
+                            @endcan
                         </div>
                         <hr>
                     @empty

@@ -32,6 +32,7 @@ class HomeController extends Controller
     {
         $post = Post::find($id);
         $this->authorize('update-post', $post);
+
         return view('update-post', compact('post'));
     }
 }
